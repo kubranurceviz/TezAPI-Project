@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,13 @@ namespace TezAPI.Domain.Entities
 {
     public class Stock: BaseEntity
     {
+
+        
         public Guid UserId { get; set; }
+        public User user { get; set; }
+       
+        [ForeignKey("User")]
+        public int UserFK { get; set; }
         public int StockAmount { get; set; }
         public ICollection<Ingredient> Ingredients { get; set; }
 

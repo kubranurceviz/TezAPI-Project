@@ -11,5 +11,6 @@ namespace TezAPI.Domain.Entities
     {
         public ICollection<Recipe> Recipes { get; set; }
         public ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
+        public Stock stock { get; set; }
     }
 }
