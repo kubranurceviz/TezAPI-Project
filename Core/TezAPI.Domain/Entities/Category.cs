@@ -7,9 +7,9 @@ using TezAPI.Domain.Entities.Common;
 
 namespace TezAPI.Domain.Entities
 {
-    public class Category: BaseEntity
+    public class Category : BaseEntity
     {
         public string CategoryName { get; set; }
-        public ICollection<Recipe> Recipes { get; set; }
+        public ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
     }
 }

@@ -10,6 +10,7 @@ namespace TezAPI.Domain.Entities
     public class ShoppingList: BaseEntity
     {
         public Guid UserId { get; set; }
+        public User user{ get; set; }
         public string Title { get; set; }
         public string ShoppingListText { get; set; }
 

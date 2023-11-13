@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TezAPI.Persistence.Contexts;
@@ -11,9 +12,11 @@ using TezAPI.Persistence.Contexts;
 namespace TezAPI.Persistence.Migrations
 {
     [DbContext(typeof(TezAPIDbContext))]
-    partial class TezAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231112141622_tekir")]
+    partial class tekir
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

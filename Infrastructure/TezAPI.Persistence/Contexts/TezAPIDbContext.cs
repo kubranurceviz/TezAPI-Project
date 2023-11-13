@@ -35,7 +35,6 @@ namespace TezAPI.Persistence.Contexts
 
         public DbSet<User> Users { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
-        public DbSet<FavoriteRecipe> FavoriteRecipes { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<ShoppingList> ShoppingLists { get; set; }
@@ -49,16 +48,8 @@ namespace TezAPI.Persistence.Contexts
             .WithMany(u => u.Recipes)
             .HasForeignKey(r => r.UserId);
 
-            modelBuilder.Entity<FavoriteRecipe>()
-              .HasOne(fr => fr.Recipe)
-              .WithMany()
-              .HasForeignKey(fr => fr.RecipeId);
 
 
-            modelBuilder.Entity<FavoriteRecipe>()
-              .HasOne(fr => fr.user)
-              .WithMany()
-              .HasForeignKey(fr => fr.UserId);
 
             modelBuilder.Entity<Category>().HasData(
                 new Category() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"), CreatedDate = DateTime.UtcNow, CategoryName = "Deniz Ürünü" },
@@ -71,7 +62,7 @@ namespace TezAPI.Persistence.Contexts
                 );
 
             modelBuilder.Entity<User>().HasData(
-               new User() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10"), CreatedDate = DateTime.UtcNow },
+               new User() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10"), CreatedDate = DateTime.UtcNow},
                 new User() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa11"), CreatedDate = DateTime.UtcNow  });
 
             modelBuilder.Entity<Stock>().HasData(
@@ -80,8 +71,8 @@ namespace TezAPI.Persistence.Contexts
           
             
             modelBuilder.Entity<Recipe>().HasData(
-            new Recipe() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa100"), CreatedDate = DateTime.UtcNow, CategoryId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),CookingTime=10,    IngredientId = Guid.Parse("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"),IsItFavorite=false,PreparationTime=10,RecipeText="a",UserId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10") },
-             new Recipe() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa101"), CreatedDate = DateTime.UtcNow, CategoryId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1"), CookingTime=30 , IngredientId=  Guid.Parse("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1") ,IsItFavorite=false,PreparationTime=10 ,RecipeText="a",UserId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10") });
+            new Recipe() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa100"), CreatedDate = DateTime.UtcNow,CookingTime=10, IsItFavorite=false,PreparationTime=10,RecipeText="a",UserId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10") },
+             new Recipe() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa101"), CreatedDate = DateTime.UtcNow,  CookingTime=30  ,IsItFavorite=false,PreparationTime=10 ,RecipeText="a",UserId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10") });
 
             modelBuilder.Entity<ShoppingList>().HasData(
                            new ShoppingList() { Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa202"), CreatedDate = DateTime.UtcNow, ShoppingListText="a", UserId = Guid.Parse("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10") ,Title="a"},

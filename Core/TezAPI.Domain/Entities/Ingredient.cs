@@ -15,8 +15,8 @@ namespace TezAPI.Domain.Entities
 
         public int StockAmount { get; set; }
         public string Unit { get; set; }
-        public ICollection<Recipe> Recipes { get; set; }
-        public ICollection<Stock> Stocks { get; set; }
+        public ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
+        public ICollection<Stock> Stocks { get; set; } = new List<Stock>();
        
 
     }

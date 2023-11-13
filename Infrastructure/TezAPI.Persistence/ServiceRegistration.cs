@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TezAPI.Application.Repositories;
 using TezAPI.Persistence.Repository;
-using TezAPI.Persistence.Repository.FavRecipe;
+
 
 namespace TezAPI.Persistence
 {
@@ -19,8 +19,6 @@ namespace TezAPI.Persistence
             services.AddDbContext<TezAPIDbContext>(options => options.UseNpgsql(Configuration.ConnectionString),ServiceLifetime.Singleton);
             services.AddSingleton<ICategoryReadRepository, CategoryReadRepository>();
             services.AddSingleton<ICategoryWriteRepository, CategoryWriteRepository>();
-            services.AddSingleton<IFavRecipeReadRepository, FavRecipeReadRepository>();
-            services.AddSingleton<IFavRecipeWriteRepository, FavRecipeWriteRepository>();
             services.AddSingleton<IIngredientReadRepository, IngredientReadRepository>();
             services.AddSingleton<IIngredientWriteRepository, IngredientWriteRepository>();
             services.AddSingleton<IRecipeReadRepository, RecipeReadRepository>();
@@ -31,6 +29,7 @@ namespace TezAPI.Persistence
             services.AddSingleton<IStockWriteRepository, StockWriteRepository>();
             services.AddSingleton<IUserReadRepository, UserReadRepository>();
             services.AddSingleton<IUserWriteRepository, UserWriteRepository>();
+
 
 
 

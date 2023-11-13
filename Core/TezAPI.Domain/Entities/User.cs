@@ -9,8 +9,13 @@ namespace TezAPI.Domain.Entities
 {
     public class User: BaseEntity
     {
-        public ICollection<Recipe> Recipes { get; set; }
-        public ICollection<FavoriteRecipe> FavoriteRecipes { get; set; }
+        public ICollection<Recipe> Recipes { get; set; } = new List<Recipe>();
+         public ICollection<Recipe> FavoriteRecipes { get; set; } =new List<Recipe>();
+        public ShoppingList shoppingList { get; set; }
         public Stock stock { get; set; }
+    
+
+
+
     }
 }

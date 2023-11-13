@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using TezAPI.Persistence.Contexts;
@@ -11,9 +12,11 @@ using TezAPI.Persistence.Contexts;
 namespace TezAPI.Persistence.Migrations
 {
     [DbContext(typeof(TezAPIDbContext))]
-    partial class TezAPIDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231112122258_karamel")]
+    partial class karamel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,13 +107,13 @@ namespace TezAPI.Persistence.Migrations
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa"),
                             CategoryName = "Deniz Ürünü",
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1014)
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5367)
                         },
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaa1"),
                             CategoryName = "Hatay Mutfağı",
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1018)
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5376)
                         });
                 });
 
@@ -146,7 +149,7 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1110),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5578),
                             IngredientName = "domates",
                             IngredientType = "sebze",
                             StockAmount = 2,
@@ -155,7 +158,7 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb1"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1113),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5584),
                             IngredientName = "krema",
                             IngredientType = "süt ürünü",
                             StockAmount = 1,
@@ -164,7 +167,7 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbb2"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1115),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5590),
                             IngredientName = "un",
                             IngredientType = "tahıl ürünleri",
                             StockAmount = 500,
@@ -194,7 +197,7 @@ namespace TezAPI.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
@@ -208,7 +211,7 @@ namespace TezAPI.Persistence.Migrations
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa100"),
                             CookingTime = 10,
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1199),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5736),
                             IsItFavorite = false,
                             PreparationTime = 10,
                             RecipeText = "a",
@@ -218,7 +221,7 @@ namespace TezAPI.Persistence.Migrations
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa101"),
                             CookingTime = 30,
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1204),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5746),
                             IsItFavorite = false,
                             PreparationTime = 10,
                             RecipeText = "a",
@@ -257,7 +260,7 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa202"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1225),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5947),
                             ShoppingListText = "a",
                             Title = "a",
                             UserId = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10")
@@ -265,7 +268,7 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaa203"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1228),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5952),
                             ShoppingListText = "b",
                             Title = "a",
                             UserId = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa11")
@@ -298,14 +301,14 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa20"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1169),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5690),
                             StockAmount = 5,
                             UserId = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10")
                         },
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa21"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1174),
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5697),
                             StockAmount = 500,
                             UserId = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa11")
                         });
@@ -328,12 +331,12 @@ namespace TezAPI.Persistence.Migrations
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa10"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1136)
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5635)
                         },
                         new
                         {
                             Id = new Guid("aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaa11"),
-                            CreatedDate = new DateTime(2023, 11, 12, 14, 16, 22, 578, DateTimeKind.Utc).AddTicks(1139)
+                            CreatedDate = new DateTime(2023, 11, 12, 12, 22, 57, 437, DateTimeKind.Utc).AddTicks(5640)
                         });
                 });
 
@@ -401,9 +404,7 @@ namespace TezAPI.Persistence.Migrations
                 {
                     b.HasOne("TezAPI.Domain.Entities.User", "Writer")
                         .WithMany("Recipes")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
 
                     b.Navigation("Writer");
                 });

@@ -11,14 +11,11 @@ namespace TezAPI.Domain.Entities
     public class Stock: BaseEntity
     {
 
-        
+        [ForeignKey("User")]
         public Guid UserId { get; set; }
         public User user { get; set; }
-       
-        [ForeignKey("User")]
-        public int UserFK { get; set; }
         public int StockAmount { get; set; }
-        public ICollection<Ingredient> Ingredients { get; set; }
+        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 
 
 
